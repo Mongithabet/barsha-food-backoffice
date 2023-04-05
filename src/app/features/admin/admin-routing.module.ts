@@ -33,6 +33,11 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     loadChildren: () => import('src/app/features/admin/delivery-man-management/delivery-man-management.module').then(m => m.DeliveryManManagementModule)
   },
+  {
+    path: 'restaurants',
+    canActivate: [AdminGuard],
+    loadChildren: () => import('src/app/features/admin/restaurant-management/restaurant-management.module').then(m => m.RestaurantManagementModule)
+  },
 ]
 
 @NgModule({

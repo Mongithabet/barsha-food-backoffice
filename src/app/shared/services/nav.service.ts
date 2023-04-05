@@ -64,9 +64,10 @@ export class NavService implements OnDestroy {
  */						
                         { path: '/v1/admin/customers', title: 'العملاء', type: 'link' },
 
-/*                        { path: '/v1/admin/user-management/laundry-owner-management', title: 'أصحاب المطاعم', type: 'link' },
+/*                        { path: '/v1/admin/user-management/restaurant-owner-management', title: 'أصحاب المطاعم', type: 'link' },
  */					   { path: '/v1/admin/restaurantowners', title: 'أصحاب المطاعم', type: 'link' },
  
+
 					   
 /* 						{ path: '/v1/admin/user-management/delivery-man-management', title: 'رجال التسليم', type: 'link' },
  */
@@ -82,7 +83,9 @@ export class NavService implements OnDestroy {
 				
 				{ path: '/v1/admin/specialities', title: 'إدارة تخصصات المطاعم', icon: 'dollar-sign', type: 'link', bookmark: true },
 				{ path: '/v1/admin/categories', title: 'إدارة التصنيفات ', icon: 'box', type: 'link', bookmark: true },
-
+ /*             { path: '/v1/admin/restaurants', title: 'إدارة المطاعم', icon: 'external-link', type: 'link', bookmark: true  },
+ */			    { path: '/v1/admin/restaurants', title: 'إدارة المطاعم', type: 'link', icon: 'shopping-bag', bookmark: true  },
+ 
 				{ path: '/v1/admin/offers', title: 'إدارة العروض', icon: 'external-link', type: 'link', bookmark: true },
 
 				{

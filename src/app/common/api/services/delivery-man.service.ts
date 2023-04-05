@@ -12,7 +12,5 @@ export class DeliveryManService {
 
   getAll = () => this.http.get(`${environment.base_url}/${environment.api_prefix}/${endpoints.ADMIN.BACKOFFICE.DELIVERYMANS}`);
 
-  
-
 
 }

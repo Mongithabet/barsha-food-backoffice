@@ -19,6 +19,7 @@ export class SpecialityService {
   update = (id: string, createUpdateSpecialityDto: CreateUpdateSpecialityDto) =>
     this.http.patch(`${environment.base_url}/${environment.api_prefix}/${endpoints.ADMIN.BACKOFFICE.SPECIALITIES}/${id}`
       , createUpdateSpecialityDto);
+      
 
 }
 
