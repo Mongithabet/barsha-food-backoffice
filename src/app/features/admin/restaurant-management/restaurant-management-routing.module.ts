@@ -7,10 +7,7 @@ const routes: Routes = [{
   component: RestaurantListComponent
 }];
 
-
 @NgModule({
-
-  
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
