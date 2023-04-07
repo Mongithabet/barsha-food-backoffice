@@ -39,10 +39,10 @@ export class RestaurantListComponent implements OnInit {
     this.getRestaurants();
   }
 
-  ngAfterViewInit() {
+/*   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-  }
+  } */
 
   /*
   * --- CUSTOM METHODS ---
@@ -88,7 +88,7 @@ export class RestaurantListComponent implements OnInit {
 
   getRestaurants = () => this.restaurantService.getAll().subscribe(
     (res: any) => {
-      console.log('dataRestaurants==',res);
+    //  console.log('dataRestaurants==',res);
       
       this.dataSource = new MatTableDataSource(res.data);
     }
@@ -96,7 +96,7 @@ export class RestaurantListComponent implements OnInit {
 
   getRestaurantById = (id:string) => this.restaurantService.getById(id).subscribe(
     (res: any) => {
-      console.log('dataRestaurantOne==',res);
+   //   console.log('dataRestaurantOne==',res);
       
     }
   )
@@ -106,14 +106,14 @@ approve(id:string){
  
 
   this.restaurantService.approve(id).subscribe(data=>{
-    console.log(data);
+   // console.log(data);
     this.getRestaurants()
   })
 }
 
 reject(id:string){
   this.restaurantService.reject(id).subscribe(data=>{
-    console.log(data);
+  //  console.log(data);
     this.getRestaurants()
   })
 }

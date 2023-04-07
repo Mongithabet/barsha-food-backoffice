@@ -12,6 +12,7 @@ export class SpecialityService {
   constructor(private http: HttpClient) { }
 
   getAll = () => this.http.get(`${environment.base_url}/${environment.api_prefix}/${endpoints.ADMIN.BACKOFFICE.SPECIALITIES}`);
+  
   create = (createUpdateSpecialityDto: CreateUpdateSpecialityDto) =>
     this.http.post(`${environment.base_url}/${environment.api_prefix}/${endpoints.ADMIN.BACKOFFICE.SPECIALITIES}`
       , createUpdateSpecialityDto);

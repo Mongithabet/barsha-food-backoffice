@@ -51,8 +51,17 @@ export class CreateUpdateSpecialityComponent implements OnInit {
     if (this.files.length > 0 && this.createSpecialityForm.valid)
       this.fileService.uploadFile(this.files[0]).subscribe(
         (res: any) => {
-          this.specialityService.create({ ...this.createSpecialityForm.getRawValue(), image: res.id }).subscribe(
-            res => this.dialogRef.close(res)
+       //   console.log('data==',res.data.id);
+
+          this.specialityService.create({ ...this.createSpecialityForm.getRawValue(), image: res.data.id }).subscribe(
+            res => {
+             // console.log(res);
+              
+                          this.dialogRef.close(res)
+
+            }
+            
+            
           )
         }
       )

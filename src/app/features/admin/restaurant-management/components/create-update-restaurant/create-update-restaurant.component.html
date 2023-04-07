@@ -30,21 +30,52 @@
                     #input>
             </mat-form-field>
 
+            <ngx-dropzone class="width" (change)="onSelectRegister($event)">
+                <ngx-dropzone-label>
+                    انقر هنا لتحميل صورة السجل التجاري
+                </ngx-dropzone-label>
+                <ngx-dropzone-image-preview class="width"
+                    ngProjectAs="ngx-dropzone-preview" *ngFor="let f of
+                    filesRegister" [file]="f">
+
+                </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+         <br>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>
+                    تاريخ انتهاء العقد
+ 
+                </mat-label>
+                <input formControlName="expirationDate" type="date"
+                    matInput
+                    #input>
+                    
+            </mat-form-field>
 
 
+            <ngx-dropzone class="width" (change)="onSelectLogo($event)">
+                <ngx-dropzone-label>
+                    انقر هنا لتحميل الشعار  
+                </ngx-dropzone-label>
+                <ngx-dropzone-image-preview class="width"
+                    ngProjectAs="ngx-dropzone-preview" *ngFor="let f of
+                    filesLogo" [file]="f">
+
+                </ngx-dropzone-image-preview>
+            </ngx-dropzone>
             <div class="mt-3">
                 <button
                     *ngIf="data.id == null"
                     mat-raised-button
                     color="primary"
-                    (click)="createRestaurantOwner()"
+                    (click)="createRestaurant()"
 
                     type="button"><i class="fa fa-plus"></i> أضف </button>
                 <button
                     *ngIf="data.id"
                     mat-raised-button
                     color="primary"
-                    (click)="updateRestaurantOwner()"
+                    (click)="updateRestaurant()"
 
                     type="button"><i class="fa fa-plus"></i> تحديث </button>
                     
