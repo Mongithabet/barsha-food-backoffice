@@ -49,9 +49,38 @@ export class RestaurantListComponent implements OnInit {
   */
 
   applyFilter(event: Event) {
+    
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+ 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
+  applyFilterApproved() {
+    
+    const filterValue = 'approved'
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+ 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  applyFilterRejected() {
+    
+    const filterValue = 'rejected'
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+ 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  applyFilterInreview() {
+    
+    const filterValue = 'inreview'
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+ 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -65,7 +94,17 @@ export class RestaurantListComponent implements OnInit {
     }
   )
 
+  getRestaurantById = (id:string) => this.restaurantService.getById(id).subscribe(
+    (res: any) => {
+      console.log('dataRestaurantOne==',res);
+      
+    }
+  )
+
+
 approve(id:string){
+ 
+
   this.restaurantService.approve(id).subscribe(data=>{
     console.log(data);
     this.getRestaurants()

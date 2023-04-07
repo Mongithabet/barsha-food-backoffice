@@ -21,15 +21,17 @@ export class CreateUpdateRestaurantComponent implements OnInit {
     private fb: FormBuilder,
     private fileService: FileService,
     private restaurantownerService: RestaurantService) {
+      console.log("ertrt==",data);
+      
     if (data) {
       this.createRestaurantForm = this.fb.group({
         name: [data.name, [Validators.required]],
-        arName: [data.arName, [Validators.required]],
+        commercialRegister: [data.commercialRegister, [Validators.required]],
       });
     } else {
       this.createRestaurantForm = this.fb.group({
         name: ['', [Validators.required]],
-        arName: ['', [Validators.required]],
+        commercialRegister: ['', [Validators.required]],
       });
     }
   }

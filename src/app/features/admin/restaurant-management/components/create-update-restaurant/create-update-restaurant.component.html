@@ -5,7 +5,7 @@
         إنشاء تصنيف جديد
     </h2>
     <h2 *ngIf="data.name" class="text-center">
-        تحديث تصنيف {{data.name}}
+        خصائص {{data.name}}
     </h2>
 
     <div class="card-body">
@@ -13,18 +13,19 @@
 
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>
-                    (en) التصنيف
+                    إسم المطعم
                 </mat-label>
-                <input formControlName="name" type="text"
+                <input  formControlName="name" type="text"
                     matInput
                     #input>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>
-                    (ar) التصنيف
+                    السجل التجاري
+ 
                 </mat-label>
-                <input formControlName="arName" type="text"
+                <input formControlName="commercialRegister" type="text"
                     matInput
                     #input>
             </mat-form-field>
