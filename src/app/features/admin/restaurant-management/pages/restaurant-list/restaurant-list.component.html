@@ -35,11 +35,11 @@
                 #input>
             </mat-form-field>  
 
-            <button (click)="openCreateUpdateDialog()" class="pos4"
+        <!--     <button [disabled]="true" (click)="openCreateDialog()" class="pos4"
             mat-raised-button color="primary">
             إضافة  مطعم
             <mat-icon>add_circle</mat-icon>
-          </button>
+          </button> -->
 
  
 
@@ -108,7 +108,7 @@
 
                 <!-- [disabled]="true" -->
 
-                <button (click)="openCreateUpdateDialog(row)" class="float-right
+                <button (click)="openPreviewDialog(row)" class="float-right
                   mx-2" mat-mini-fab color="primary">
                   <mat-icon>remove_red_eye</mat-icon>
 

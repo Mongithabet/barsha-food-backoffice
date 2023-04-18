@@ -10,8 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { environment } from 'src/environments/environment';
 import { RestaurantOwnerService } from '../../../../../common/api/services/restaurant-owner.service';
 import { RestaurantOwner } from '../../../../../common/api/models/restaurant-owner.model';
-import { SpecialityService } from 'src/app/common/api/services/speciality.service';
-import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-restaurant-owner-list',
   templateUrl: './restaurant-owner-list.component.html',
@@ -38,10 +37,7 @@ export class RestaurantOwnerListComponent implements OnInit {
     this.getRestaurantOwners();
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+
 
   /*
   * --- CUSTOM METHODS ---
@@ -58,7 +54,7 @@ export class RestaurantOwnerListComponent implements OnInit {
 
   getRestaurantOwners = () => this.restaurantOwnerService.getAll().subscribe(
     (res: any) => {
-      console.log('dataRestaurantOwners==',res);
+     // console.log('dataRestaurantOwners==',res);
       
       this.dataSource = new MatTableDataSource(res.data);
     }
@@ -69,7 +65,9 @@ export class RestaurantOwnerListComponent implements OnInit {
       const dialogRef = this.dialog.open(CreateUpdateRestaurantOwnerComponent, {
         data: restaurantowner,
         direction: 'rtl',
-        width: '800px'
+        width: '800px',
+        autoFocus: false,
+        maxHeight: '95vh'
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) this.getRestaurantOwners()
@@ -78,7 +76,9 @@ export class RestaurantOwnerListComponent implements OnInit {
       const dialogRef = this.dialog.open(CreateUpdateRestaurantOwnerComponent, {
         data: {},
         direction: 'rtl',
-        width: '800px'
+        width: '800px',
+        autoFocus: false,
+        maxHeight: '95vh'
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) this.getRestaurantOwners()

@@ -1,0 +1,71 @@
+<div class="container-fluid">
+
+
+    
+    <h2 *ngIf="restaurant == null" class="text-center">
+        إنشاء مطعم جديد
+    </h2>
+    <h2 *ngIf="restaurant.name" class="text-center">
+        خصائص {{restaurant.name}} <img src="{{logoUrl}}" width="30" height="30">
+    </h2> 
+
+    <div class="card-body">
+        <form >
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>
+                    إسم المطعم
+                </mat-label>
+                <input name="name" value="{{restaurant.name}}" type="text" matInput #input>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>
+                    وصف المطعم
+                </mat-label>
+                <input name="description" value="{{restaurant.description}}"  type="text" matInput #input>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>
+                    النهج
+                </mat-label>
+                <input name="street" value="{{restaurant.street}}" type="text" matInput #input>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>التخصصات</mat-label>
+                <input name="specialities" type="text" matInput #input value="{{special}}">
+                
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>
+                    السجل التجاري
+
+                </mat-label>
+                <input name="commercialRegister" value="{{restaurant.commercialRegister}}" type="text" matInput #input>
+            </mat-form-field>
+
+
+            
+            <ngx-dropzone class="width" >
+                <ngx-dropzone-label>
+                    <img src="{{imgUrl}}" width="100" height="100">
+                </ngx-dropzone-label>
+              
+            </ngx-dropzone>
+            <br>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>
+                    تاريخ انتهاء العقد
+
+                </mat-label>
+                <input name="expirationDate" value="{{restaurant.expirationDate |  date:'MM/dd/yyyy'}}" type="text" matInput #input>
+
+            </mat-form-field>
+
+
+         
+     
+        </form>
+    </div>
+
+</div>

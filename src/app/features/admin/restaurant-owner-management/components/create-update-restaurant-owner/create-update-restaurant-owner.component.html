@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 
 
     <h2 *ngIf="data == null" class="text-center">
@@ -51,4 +51,130 @@
         </form>
     </div>
 
-</div>
+</div> -->
+
+<div class="container-fluid">
+    
+        <h2 *ngIf="data == null" class="text-center">
+            إنشاء مطعم جديد
+        </h2>
+        <h2 *ngIf="data.name" class="text-center">
+            خصائص {{data.name}}
+        </h2>
+    
+        <div class="card-body">
+            <form [formGroup]="createRestaurantOwnerForm">
+                <h2 class="pos"> صاحب المطعم</h2>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        الإسم 
+                    </mat-label>
+                    <input formControlName="firstName" type="text" matInput #input>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        اللقب 
+                    </mat-label>
+                    <input formControlName="lastName" type="text" matInput #input>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        الإميل 
+                    </mat-label>
+                    <input formControlName="email" type="email" matInput #input>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        الهاتف 
+                    </mat-label>
+                    <input formControlName="phone" type="text" matInput #input>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        كلمة المرور
+ 
+                    </mat-label>
+                    <input formControlName="password" type="text" matInput #input>
+                </mat-form-field>
+                <form [formGroup]="createRestaurantForm">
+                 <h2 class="pos">المطعم</h2>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        إسم المطعم
+                    </mat-label>
+                    <input formControlName="name" type="text" matInput #input>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        وصف المطعم
+                    </mat-label>
+                    <input formControlName="description" type="text" matInput #input>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        النهج
+                    </mat-label>
+                    <input formControlName="street" type="text" matInput #input>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline"  class="w-100" >
+                    <mat-label>التخصصات</mat-label>
+                    <mat-select formControlName="specialities" #select multiple id="val" >
+                        <mat-option   (click)="onSelectSpeciality()" *ngFor="let speciality of specialities"
+                            [value]="speciality.id">
+                            {{speciality.arName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        السجل التجاري
+    
+                    </mat-label>
+                    <input formControlName="commercialRegister" type="text" matInput #input>
+                </mat-form-field>
+    
+                <ngx-dropzone class="width" (change)="onSelectRegister($event)">
+                    <ngx-dropzone-label>
+                        انقر هنا لتحميل صورة السجل التجاري
+                    </ngx-dropzone-label>
+                    <ngx-dropzone-image-preview class="width" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of
+                        filesRegister" [file]="f">
+    
+                    </ngx-dropzone-image-preview>
+                </ngx-dropzone>
+                <br>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>
+                        تاريخ انتهاء العقد
+    
+                    </mat-label>
+                    <input formControlName="expirationDate" type="date" matInput #input>
+    
+                </mat-form-field>
+    
+    
+                <ngx-dropzone class="width" (change)="onSelectLogo($event)">
+                    <ngx-dropzone-label>
+                        انقر هنا لتحميل الشعار
+                    </ngx-dropzone-label>
+                    <ngx-dropzone-image-preview class="width" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of
+                        filesLogo" [file]="f">
+    
+                    </ngx-dropzone-image-preview>
+                </ngx-dropzone>
+                <div class="mt-3">
+                    <button *ngIf="data.id == null" mat-raised-button color="primary" (click)="createRestaurantOwner()"
+                        type="button"><i class="fa fa-plus"></i> أضف </button>
+                    <button *ngIf="data.id" mat-raised-button color="primary" (click)="updateRestaurant()" type="button"><i
+                            class="fa fa-plus"></i> تحديث </button>
+    
+                </div>
+                </form>
+            </form>
+        </div>
+    
+    </div>

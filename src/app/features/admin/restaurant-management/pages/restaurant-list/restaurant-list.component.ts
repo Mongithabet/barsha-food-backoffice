@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-//import Swal from 'sweetalert2';
-//import Swal from 'sweetalert2/dist/sweetalert2.js';
 
-import { CreateUpdateRestaurantComponent } from '../../components/create-update-restaurant/create-update-restaurant.component';
+
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,8 +8,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { environment } from 'src/environments/environment';
 import { RestaurantService } from '../../../../../common/api/services/restaurant.service';
 import { Restaurant } from '../../../../../common/api/models/restaurant.model';
-import { SpecialityService } from 'src/app/common/api/services/speciality.service';
-import { FormControl } from '@angular/forms';
+import { UpdateRestaurantComponent } from '../../components/update-restaurant/update-restaurant.component';
+import { PreviewRestaurantComponent } from '../../components/preview-restaurant/preview-restaurant.component';
+
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',
@@ -119,21 +118,28 @@ reject(id:string){
 }
 
 
-  openCreateUpdateDialog = (restaurantowner?: Restaurant) => {
-    if (restaurantowner) {
-      const dialogRef = this.dialog.open(CreateUpdateRestaurantComponent, {
-        data: restaurantowner,
+
+
+  openUpdateDialog = (restaurant?: Restaurant) => {
+    if (restaurant) {
+      const dialogRef = this.dialog.open(UpdateRestaurantComponent, {
+        data: restaurant,
         direction: 'rtl',
-        width: '800px'
+        width: '800px',
+        autoFocus: false,
+        maxHeight: '95vh'
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) this.getRestaurants()
       });
+
     } else {
-      const dialogRef = this.dialog.open(CreateUpdateRestaurantComponent, {
+      const dialogRef = this.dialog.open(UpdateRestaurantComponent, {
         data: {},
         direction: 'rtl',
-        width: '800px'
+        width: '800px',
+        autoFocus: false,
+        maxHeight: '95vh'
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) this.getRestaurants()
@@ -143,6 +149,33 @@ reject(id:string){
   }
 
 
+  openPreviewDialog = (restaurant?: Restaurant) => {
+    if (restaurant) {
+      const dialogRef = this.dialog.open(PreviewRestaurantComponent, {
+        data: restaurant,
+        direction: 'rtl',
+        width: '800px',
+        autoFocus: false,
+        maxHeight: '95vh'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) this.getRestaurants()
+      });
+
+    } else {
+      const dialogRef = this.dialog.open(PreviewRestaurantComponent, {
+        data: {},
+        direction: 'rtl',
+        width: '800px',
+        autoFocus: false,
+        maxHeight: '95vh'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) this.getRestaurants()
+      });
+    }
+
+  }
   /* alertConfirmation(id:string){
     Swal.fire({
       position: 'center',

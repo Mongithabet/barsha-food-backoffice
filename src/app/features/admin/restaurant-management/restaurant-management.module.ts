@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { RestaurantManagementRoutingModule } from './restaurant-management-routing.module';
 import { RestaurantListComponent } from './pages/restaurant-list/restaurant-list.component';
-import { CreateUpdateRestaurantComponent } from './components/create-update-restaurant/create-update-restaurant.component';
+import { PreviewRestaurantComponent } from './components/preview-restaurant/preview-restaurant.component';
+import { UpdateRestaurantComponent } from './components/update-restaurant/update-restaurant.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,7 +22,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     RestaurantListComponent,
-    CreateUpdateRestaurantComponent
+    PreviewRestaurantComponent,
+    UpdateRestaurantComponent
+
   ],
   imports: [
     CommonModule,

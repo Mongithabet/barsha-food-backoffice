@@ -7,6 +7,7 @@ export const endpoints = {
             CUSTOMERS:'bo-customers',
             RESTAURANTOWNERS:'bo-restaurant-owners',
             DELIVERYMANS: 'bo-delivery-mans',
+            DELIVERYCOMPANIES: 'bo-delivery-companies',
             RESTAURANTS:'bo-restaurants',
             USERS: 'bo-users',
         }

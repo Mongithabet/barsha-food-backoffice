@@ -30,6 +30,15 @@
                     #input>
             </mat-form-field>
 
+            <mat-form-field appearance="outline"  class="w-100" >
+                <mat-label>التخصصات</mat-label>
+                <mat-select formControlName="specialities" #select multiple id="val" >
+                    <mat-option   (click)="onSelectSpeciality()" *ngFor="let speciality of specialities"
+                        [value]="speciality.id">
+                        {{speciality.arName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
        <!--      <ngx-dropzone (change)="onSelect($event)">
                 <ngx-dropzone-label>
                     انقر هنا لتحميل الصورة

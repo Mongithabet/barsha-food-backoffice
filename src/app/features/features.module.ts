@@ -8,6 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +24,12 @@ import { MatTableModule } from '@angular/material/table';
     MatPaginatorModule,
     MatButtonModule,
     MatIconModule,
+    MatSelectModule,
+    MatCheckboxModule, 
+    MatSelectModule,
+    MatCheckboxModule, 
+    FormsModule,
+    ReactiveFormsModule,
 
   ]
 })

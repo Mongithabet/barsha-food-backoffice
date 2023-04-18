@@ -34,6 +34,11 @@ const routes: Routes = [
     loadChildren: () => import('src/app/features/admin/delivery-man-management/delivery-man-management.module').then(m => m.DeliveryManManagementModule)
   },
   {
+    path: 'deliverycompanies',
+    canActivate: [AdminGuard],
+    loadChildren: () => import('src/app/features/admin/delivery-company-management/delivery-company-management.module').then(m => m.DeliveryCompanyManagementModule)
+  },
+  {
     path: 'restaurants',
     canActivate: [AdminGuard],
     loadChildren: () => import('src/app/features/admin/restaurant-management/restaurant-management.module').then(m => m.RestaurantManagementModule)

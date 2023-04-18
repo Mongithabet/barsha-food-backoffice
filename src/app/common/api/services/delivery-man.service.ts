@@ -12,5 +12,8 @@ export class DeliveryManService {
 
   getAll = () => this.http.get(`${environment.base_url}/${environment.api_prefix}/${endpoints.ADMIN.BACKOFFICE.DELIVERYMANS}`);
 
+  getOne = (id:string) => this.http.get(`${environment.base_url}/${environment.api_prefix}/${endpoints.ADMIN.BACKOFFICE.DELIVERYMANS}/${id}`);
+
+
 
 }
